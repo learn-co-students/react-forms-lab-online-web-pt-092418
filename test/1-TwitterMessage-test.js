@@ -13,6 +13,8 @@ describe("<TwitterMessage />", () => {
       const wrapper = shallow(<TwitterMessage maxChars={140} />);
       const event = { target: { value: "f", id: "message", name: "message" } };
       wrapper.find("input").simulate("change", event);
+      
+      console.log("\n\n******yo yo=" + JSON.stringify(wrapper.find("input").props(), null, 2));
       expect(wrapper.find("input").props().value).to.deep.equal(
         event.target.value,
         "The input value is not being updated when it changes"
